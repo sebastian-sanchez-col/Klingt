@@ -7,75 +7,37 @@
 
 import SwiftUI
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct Home: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-    
     var body: some View {
-        NavigationView {
-            List {
-                HomeView()
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
-                    }
-                    ToolbarItem {
-                        Button(action: addItem) {
-                            Label("Add Item", systemImage: "plus")
-                        }
-                    }
-                }
-                Text("Select an item")
+        ZStack {
+          VStack {
+            Text("Welcome")
+            Spacer()
+            Button("History") { }
+              .padding(.bottom)
+          }
+          VStack {
+            HStack(alignment: .bottom) {
+              VStack(alignment: .leading) {
+                Text("Know your city")
+                  .font(.largeTitle)
+                Text("and get help if you need it.")
+                  .font(.headline)
+              }
+              Image("step-up")
+                .resizedToFill(width: 240, height: 240)
+                .clipShape(Circle())
             }
-        }
-    }
-    
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            Button(action: { }) {
+              Text("Get Started")
+              Image(systemName: "arrow.right.circle")
             }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            .font(.title2)
+            .padding()
+            .background(
+              RoundedRectangle(cornerRadius: 20)
+              .stroke(Color.gray, lineWidth: 2))
+          }
         }
     }
 }

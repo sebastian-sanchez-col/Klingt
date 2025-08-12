@@ -10,9 +10,13 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .resizable()
-                .scaledToFit()
+            HStack {
+              ForEach(0 ..< 5) { _ in
+                Image(systemName: "waveform.path.ecg")
+                  .foregroundStyle(.gray)
+                  .font(.largeTitle)
+              }
+            }
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
