@@ -14,6 +14,7 @@
 		9C85DFB32E0348C700C82977 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85DFB22E0348C700C82977 /* Persistence.swift */; };
 		9C85DFB62E0348C700C82977 /* Klingt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C85DFB42E0348C700C82977 /* Klingt.xcdatamodeld */; };
 		9CAF784A2E47BB0B00D48016 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF78492E47BB0B00D48016 /* HomeView.swift */; };
+		9CF5D1F12E4B702F0056B20B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5D1F02E4B702F0056B20B /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		9C85DFB22E0348C700C82977 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9C85DFB52E0348C700C82977 /* Klingt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Klingt.xcdatamodel; sourceTree = "<group>"; };
 		9CAF78492E47BB0B00D48016 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9CF5D1F02E4B702F0056B20B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		9C8676612E4A450F0011EB6D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9CF5D1EF2E4B701D0056B20B /* Home */,
 				9C8676622E4A451D0011EB6D /* Main */,
 			);
 			path = Views;
@@ -98,6 +101,14 @@
 				9C85DFAB2E0348BE00C82977 /* ContentView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		9CF5D1EF2E4B701D0056B20B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9CF5D1F02E4B702F0056B20B /* Home.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 				9C85DFB32E0348C700C82977 /* Persistence.swift in Sources */,
 				9C85DFAC2E0348BE00C82977 /* ContentView.swift in Sources */,
 				9CAF784A2E47BB0B00D48016 /* HomeView.swift in Sources */,
+				9CF5D1F12E4B702F0056B20B /* Home.swift in Sources */,
 				9C85DFAA2E0348BE00C82977 /* KlingtApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
