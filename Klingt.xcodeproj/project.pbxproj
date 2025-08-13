@@ -7,19 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C7573B12E4E08AA00C853DB /* PrincipalCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7573B02E4E08AA00C853DB /* PrincipalCarouselView.swift */; };
+		9C7573B32E4E0A0A00C853DB /* HomeDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7573B22E4E0A0A00C853DB /* HomeDashboardView.swift */; };
+		9C7573B52E4E0A5600C853DB /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7573B42E4E0A5600C853DB /* TabBarView.swift */; };
+		9C7573B82E4E0C1200C853DB /* PrincipalCarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7573B72E4E0C1200C853DB /* PrincipalCarouselModel.swift */; };
+		9C7573BA2E4E0D1F00C853DB /* PrincipalCarouselSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7573B92E4E0D1F00C853DB /* PrincipalCarouselSlideView.swift */; };
 		9C85DFAA2E0348BE00C82977 /* KlingtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85DFA92E0348BE00C82977 /* KlingtApp.swift */; };
 		9C85DFAC2E0348BE00C82977 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85DFAB2E0348BE00C82977 /* ContentView.swift */; };
 		9C85DFAE2E0348C700C82977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C85DFAD2E0348C700C82977 /* Assets.xcassets */; };
 		9C85DFB12E0348C700C82977 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C85DFB02E0348C700C82977 /* Preview Assets.xcassets */; };
 		9C85DFB32E0348C700C82977 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85DFB22E0348C700C82977 /* Persistence.swift */; };
 		9C85DFB62E0348C700C82977 /* Klingt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C85DFB42E0348C700C82977 /* Klingt.xcdatamodeld */; };
-		9CAF784A2E47BB0B00D48016 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF78492E47BB0B00D48016 /* HomeView.swift */; };
-		9CCCE7742E4CD9540037BED6 /* ChatHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCE7732E4CD9540037BED6 /* ChatHistory.swift */; };
+		9CCCE7742E4CD9540037BED6 /* ChatHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCE7732E4CD9540037BED6 /* ChatHistoryView.swift */; };
 		9CCCE7772E4CDB660037BED6 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCE7762E4CDB660037BED6 /* ImageExtension.swift */; };
-		9CF5D1F12E4B702F0056B20B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5D1F02E4B702F0056B20B /* Home.swift */; };
+		9CF5D1F12E4B702F0056B20B /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5D1F02E4B702F0056B20B /* ConfigurationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C7573B02E4E08AA00C853DB /* PrincipalCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalCarouselView.swift; sourceTree = "<group>"; };
+		9C7573B22E4E0A0A00C853DB /* HomeDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardView.swift; sourceTree = "<group>"; };
+		9C7573B42E4E0A5600C853DB /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		9C7573B72E4E0C1200C853DB /* PrincipalCarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalCarouselModel.swift; sourceTree = "<group>"; };
+		9C7573B92E4E0D1F00C853DB /* PrincipalCarouselSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalCarouselSlideView.swift; sourceTree = "<group>"; };
 		9C85DFA62E0348BE00C82977 /* Klingt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Klingt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C85DFA92E0348BE00C82977 /* KlingtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlingtApp.swift; sourceTree = "<group>"; };
 		9C85DFAB2E0348BE00C82977 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,10 +36,9 @@
 		9C85DFB02E0348C700C82977 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9C85DFB22E0348C700C82977 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9C85DFB52E0348C700C82977 /* Klingt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Klingt.xcdatamodel; sourceTree = "<group>"; };
-		9CAF78492E47BB0B00D48016 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		9CCCE7732E4CD9540037BED6 /* ChatHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistory.swift; sourceTree = "<group>"; };
+		9CCCE7732E4CD9540037BED6 /* ChatHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryView.swift; sourceTree = "<group>"; };
 		9CCCE7762E4CDB660037BED6 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
-		9CF5D1F02E4B702F0056B20B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		9CF5D1F02E4B702F0056B20B /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +73,12 @@
 			children = (
 				9CCCE7752E4CDB470037BED6 /* Utils */,
 				9C8676612E4A450F0011EB6D /* Views */,
+				9C85DFA92E0348BE00C82977 /* KlingtApp.swift */,
 				9C8676602E4A45080011EB6D /* Models */,
 				9C85DFAD2E0348C700C82977 /* Assets.xcassets */,
 				9C85DFB22E0348C700C82977 /* Persistence.swift */,
 				9C85DFB42E0348C700C82977 /* Klingt.xcdatamodeld */,
 				9C85DFAF2E0348C700C82977 /* Preview Content */,
-				9CAF78492E47BB0B00D48016 /* HomeView.swift */,
 			);
 			path = Klingt;
 			sourceTree = "<group>";
@@ -86,6 +94,7 @@
 		9C8676602E4A45080011EB6D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9C7573B72E4E0C1200C853DB /* PrincipalCarouselModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -93,28 +102,15 @@
 		9C8676612E4A450F0011EB6D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9CCCE7722E4CD90B0037BED6 /* ChatHistory */,
-				9CF5D1EF2E4B701D0056B20B /* Home */,
-				9C8676622E4A451D0011EB6D /* Main */,
+				9C85DFAB2E0348BE00C82977 /* ContentView.swift */,
+				9CF5D1F02E4B702F0056B20B /* ConfigurationView.swift */,
+				9CCCE7732E4CD9540037BED6 /* ChatHistoryView.swift */,
+				9C7573B02E4E08AA00C853DB /* PrincipalCarouselView.swift */,
+				9C7573B22E4E0A0A00C853DB /* HomeDashboardView.swift */,
+				9C7573B42E4E0A5600C853DB /* TabBarView.swift */,
+				9C7573B92E4E0D1F00C853DB /* PrincipalCarouselSlideView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		9C8676622E4A451D0011EB6D /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				9C85DFA92E0348BE00C82977 /* KlingtApp.swift */,
-				9C85DFAB2E0348BE00C82977 /* ContentView.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		9CCCE7722E4CD90B0037BED6 /* ChatHistory */ = {
-			isa = PBXGroup;
-			children = (
-				9CCCE7732E4CD9540037BED6 /* ChatHistory.swift */,
-			);
-			path = ChatHistory;
 			sourceTree = "<group>";
 		};
 		9CCCE7752E4CDB470037BED6 /* Utils */ = {
@@ -123,14 +119,6 @@
 				9CCCE7762E4CDB660037BED6 /* ImageExtension.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		9CF5D1EF2E4B701D0056B20B /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				9CF5D1F02E4B702F0056B20B /* Home.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,13 +192,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C85DFB62E0348C700C82977 /* Klingt.xcdatamodeld in Sources */,
+				9C7573B52E4E0A5600C853DB /* TabBarView.swift in Sources */,
+				9C7573B12E4E08AA00C853DB /* PrincipalCarouselView.swift in Sources */,
 				9C85DFB32E0348C700C82977 /* Persistence.swift in Sources */,
+				9C7573B82E4E0C1200C853DB /* PrincipalCarouselModel.swift in Sources */,
 				9C85DFAC2E0348BE00C82977 /* ContentView.swift in Sources */,
-				9CCCE7742E4CD9540037BED6 /* ChatHistory.swift in Sources */,
-				9CAF784A2E47BB0B00D48016 /* HomeView.swift in Sources */,
-				9CF5D1F12E4B702F0056B20B /* Home.swift in Sources */,
+				9CCCE7742E4CD9540037BED6 /* ChatHistoryView.swift in Sources */,
+				9CF5D1F12E4B702F0056B20B /* ConfigurationView.swift in Sources */,
 				9C85DFAA2E0348BE00C82977 /* KlingtApp.swift in Sources */,
+				9C7573BA2E4E0D1F00C853DB /* PrincipalCarouselSlideView.swift in Sources */,
 				9CCCE7772E4CDB660037BED6 /* ImageExtension.swift in Sources */,
+				9C7573B32E4E0A0A00C853DB /* HomeDashboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
