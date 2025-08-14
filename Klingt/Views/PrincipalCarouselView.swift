@@ -1,13 +1,13 @@
 //
-//  Home.swift
+//  PrincipalCarouselView.swift
 //  Klingt
 //
-//  Created by Juan Sanchez on 12/08/25.
+//  Created by Juan Sanchez on 14/08/25.
 //
 
 import SwiftUI
 
-struct Home: View {
+struct PrincipalCarouselView: View {
     var body: some View {
         ZStack {
           VStack {
@@ -43,5 +43,5 @@ struct Home: View {
 }
 
 #Preview {
-    Home()
+    PrincipalCarouselView()
 }

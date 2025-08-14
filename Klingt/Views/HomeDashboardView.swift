@@ -1,13 +1,13 @@
 //
-//  HomeView.swift
+//  HomeDashboardView.swift
 //  Klingt
 //
-//  Created by Juan Sanchez on 9/08/25.
+//  Created by Juan Sanchez on 14/08/25.
 //
 
 import SwiftUI
 
-struct HomeView: View {
+struct HomeDashboardView: View {
     var body: some View {
         VStack {
             HStack {
@@ -30,5 +30,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeDashboardView()
 }
