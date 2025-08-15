@@ -9,10 +9,11 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @SceneStorage("selectedTab") private var selectedTab = 9
 
     var body: some View {
-        TabView {
-          PrincipalCarouselView()
+        TabView(selection: $selectedTab) {
+          PrincipalCarouselView(selectedTab: $selectedTab)
           ForEach(PrincipalCarouselModel.models.indices, id: \.self) { index in
               PrincipalCarouselSlideView(index: index)
           }

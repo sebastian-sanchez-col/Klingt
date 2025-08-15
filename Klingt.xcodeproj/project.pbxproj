@@ -20,6 +20,7 @@
 		9C85DFB62E0348C700C82977 /* Klingt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C85DFB42E0348C700C82977 /* Klingt.xcdatamodeld */; };
 		9CCCE7742E4CD9540037BED6 /* ChatHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCE7732E4CD9540037BED6 /* ChatHistoryView.swift */; };
 		9CCCE7772E4CDB660037BED6 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCE7762E4CDB660037BED6 /* ImageExtension.swift */; };
+		9CD1D2702E50C479002B3A2E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1D26F2E50C479002B3A2E /* HeaderView.swift */; };
 		9CF5D1F12E4B702F0056B20B /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5D1F02E4B702F0056B20B /* ConfigurationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		9C85DFB52E0348C700C82977 /* Klingt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Klingt.xcdatamodel; sourceTree = "<group>"; };
 		9CCCE7732E4CD9540037BED6 /* ChatHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryView.swift; sourceTree = "<group>"; };
 		9CCCE7762E4CDB660037BED6 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		9CD1D26F2E50C479002B3A2E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		9CF5D1F02E4B702F0056B20B /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 				9C7573B22E4E0A0A00C853DB /* HomeDashboardView.swift */,
 				9C7573B42E4E0A5600C853DB /* TabBarView.swift */,
 				9C7573B92E4E0D1F00C853DB /* PrincipalCarouselSlideView.swift */,
+				9CD1D26F2E50C479002B3A2E /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				9C7573BA2E4E0D1F00C853DB /* PrincipalCarouselSlideView.swift in Sources */,
 				9CCCE7772E4CDB660037BED6 /* ImageExtension.swift in Sources */,
 				9C7573B32E4E0A0A00C853DB /* HomeDashboardView.swift in Sources */,
+				9CD1D2702E50C479002B3A2E /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

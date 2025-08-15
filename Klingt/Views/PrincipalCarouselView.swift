@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct PrincipalCarouselView: View {
+    @Binding var selectedTab: Int
+
     var body: some View {
         ZStack {
           VStack {
-            Text("Welcome")
+            HeaderView(
+                selectedTab: $selectedTab,
+                titleText: "Welcome"
+            )
+            .containerRelativeFrame(.vertical) { length, _ in
+              length * 0.2
+            }
             Spacer()
             Button("History") { }
               .padding(.bottom)
@@ -43,5 +51,5 @@ struct PrincipalCarouselView: View {
 }
 
 #Preview {
-    PrincipalCarouselView()
+    PrincipalCarouselView(selectedTab: .constant(9))
 }
