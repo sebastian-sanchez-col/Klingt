@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PrincipalCarouselView: View {
     @Binding var selectedTab: Int
+    @State var isLastPage = false
 
     var body: some View {
         ZStack {
@@ -21,8 +22,20 @@ struct PrincipalCarouselView: View {
               length * 0.2
             }
             Spacer()
-            Button("History") { }
-              .padding(.bottom)
+              
+            Button(action: { isLastPage = true }) {
+              Text("Get Started")
+              Image(systemName: "arrow.right.circle")
+            }
+            .font(.title2)
+            .padding()
+            .fullScreenCover(isPresented: $isLastPage) {
+                HomeDashboardView()
+            }
+            .background(
+              RoundedRectangle(cornerRadius: 20)
+              .stroke(Color.gray, lineWidth: 2))
+            
           }
           VStack {
             HStack(alignment: .bottom) {
@@ -36,15 +49,6 @@ struct PrincipalCarouselView: View {
                 .resizedToFill(width: 240, height: 240)
                 .clipShape(Circle())
             }
-            Button(action: { }) {
-              Text("Get Started")
-              Image(systemName: "arrow.right.circle")
-            }
-            .font(.title2)
-            .padding()
-            .background(
-              RoundedRectangle(cornerRadius: 20)
-              .stroke(Color.gray, lineWidth: 2))
           }
         }
     }

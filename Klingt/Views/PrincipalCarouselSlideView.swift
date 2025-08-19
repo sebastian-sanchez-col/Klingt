@@ -18,17 +18,13 @@ struct PrincipalCarouselSlideView: View {
   @State var isLastPage = false
 
   var body: some View {
-    GeometryReader { geometry in
-      VStack {
+      ZStack {
+        VStack {
         Text(slide.name)
           .padding(.bottom)
 
         Text("videoName: slide.videoName")
           .background(Color.white)
-          .frame(height: geometry.size.height * 0.45)
-
-        Text(Date().addingTimeInterval(interval), style: .timer)
-          .font(.system(size: geometry.size.height * 0.07))
 
         Button("Start/Done") { }
           .font(.title3)
@@ -38,13 +34,19 @@ struct PrincipalCarouselSlideView: View {
           .padding()
 
         Spacer()
-        Button("History") {
-            isLastPage = true
-        }
-          .padding(.bottom)
+          Button(action: { isLastPage = true }) {
+            Text("Get Started")
+            Image(systemName: "arrow.right.circle")
+          }
+          .font(.title2)
+          .padding()
           .fullScreenCover(isPresented: $isLastPage) {
               HomeDashboardView()
           }
+          .background(
+            RoundedRectangle(cornerRadius: 20)
+            .stroke(Color.gray, lineWidth: 2))
+          
       }
     }
   }
