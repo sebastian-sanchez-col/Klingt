@@ -12,9 +12,9 @@ struct PrincipalCarouselModel {
   let videoName: String
 
   enum PrincipalCarouselModelEnum: String {
-    case squat = "Squat"
-    case stepUp = "Step Up"
-    case burpee = "Burpee"
+    case socialTeam = "Social team"
+    case food = "Food"
+    case home = "Home"
     case sunSalute = "Sun Salute"
   }
 }
@@ -22,14 +22,14 @@ struct PrincipalCarouselModel {
 extension PrincipalCarouselModel {
   static let models = [
     PrincipalCarouselModel(
-      name: PrincipalCarouselModelEnum.squat.rawValue,
-      videoName: "squat"),
+      name: PrincipalCarouselModelEnum.socialTeam.rawValue,
+      videoName: "social-team"),
     PrincipalCarouselModel(
-      name: PrincipalCarouselModelEnum.stepUp.rawValue,
-      videoName: "step-up"),
+      name: PrincipalCarouselModelEnum.food.rawValue,
+      videoName: "Food"),
     PrincipalCarouselModel(
-      name: PrincipalCarouselModelEnum.burpee.rawValue,
-      videoName: "burpee"),
+      name: PrincipalCarouselModelEnum.home.rawValue,
+      videoName: "Home"),
     PrincipalCarouselModel(
       name: PrincipalCarouselModelEnum.sunSalute.rawValue,
       videoName: "sun-salute")
