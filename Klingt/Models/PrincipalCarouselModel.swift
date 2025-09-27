@@ -8,30 +8,31 @@
 import Foundation
 
 struct PrincipalCarouselModel {
-  let name: String
-  let videoName: String
-
-  enum PrincipalCarouselModelEnum: String {
-    case socialTeam = "Social team"
-    case food = "Food"
-    case home = "Home"
-    case sunSalute = "Sun Salute"
-  }
+    let name: String
+    let description: String
+    
+    enum PrincipalCarouselTitleEnum: String {
+        case socialTeam = "Know your city"
+        case food = "Food"
+        case home = "Home"
+    }
+    enum PrincipalCarouselDescriptionEnum: String {
+        case socialTeam = "and get help if you need it."
+        case food = "Food"
+        case home = "Home"
+    }
 }
 
 extension PrincipalCarouselModel {
-  static let models = [
-    PrincipalCarouselModel(
-      name: PrincipalCarouselModelEnum.socialTeam.rawValue,
-      videoName: "social-team"),
-    PrincipalCarouselModel(
-      name: PrincipalCarouselModelEnum.food.rawValue,
-      videoName: "Food"),
-    PrincipalCarouselModel(
-      name: PrincipalCarouselModelEnum.home.rawValue,
-      videoName: "Home"),
-    PrincipalCarouselModel(
-      name: PrincipalCarouselModelEnum.sunSalute.rawValue,
-      videoName: "sun-salute")
-  ]
+    static let models = [
+        PrincipalCarouselModel(
+            name: PrincipalCarouselTitleEnum.socialTeam.rawValue,
+            description: PrincipalCarouselDescriptionEnum.socialTeam.rawValue),
+        PrincipalCarouselModel(
+            name: PrincipalCarouselDescriptionEnum.food.rawValue,
+            description: PrincipalCarouselDescriptionEnum.food.rawValue),
+        PrincipalCarouselModel(
+            name: PrincipalCarouselDescriptionEnum.home.rawValue,
+            description: PrincipalCarouselDescriptionEnum.home.rawValue)
+    ]
 }
