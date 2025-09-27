@@ -1,20 +1,13 @@
 //
-//  Home.swift
+//  ChatHistoryView.swift
 //  Klingt
 //
-//  Created by Juan Sanchez on 12/08/25.
+//  Created by Juan Sanchez on 13/08/25.
 //
 
 import SwiftUI
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
-struct Home: View {
+struct ChatHistoryView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(
@@ -25,7 +18,6 @@ struct Home: View {
     var body: some View {
         NavigationView {
             List {
-                HomeView()
                 ForEach(items) { item in
                     NavigationLink {
                         Text("Item at \(item.timestamp!, formatter: itemFormatter)")
@@ -80,6 +72,13 @@ struct Home: View {
     }
 }
 
+private let itemFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    formatter.timeStyle = .medium
+    return formatter
+}()
+
 #Preview {
-    Home()
+    ChatHistoryView()
 }

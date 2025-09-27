@@ -1,19 +1,17 @@
 //
-//  ContentView.swift
+//  TabBarView.swift
 //  Klingt
 //
-//  Created by Juan Sanchez on 18/06/25.
+//  Created by Juan Sanchez on 14/08/25.
 //
 
 import SwiftUI
-import CoreData
 
-struct ContentView: View {
-
+struct TabBarView: View {
     var body: some View {
         ZStack {
             TabView {
-               Home()
+                HomeDashboardView()
                    .tabItem {
                        Image(systemName: "1.circle")
                        Text("Home")
@@ -33,9 +31,6 @@ struct ContentView: View {
     }
 }
 
-
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//        .colorScheme(.dark)
-//        .background(Color.black)
+    TabBarView()
 }
