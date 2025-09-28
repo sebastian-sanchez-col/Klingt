@@ -10,46 +10,40 @@ import SwiftUI
 struct PrincipalCarouselView: View {
     @Binding var selectedTab: Int
     @State var isLastPage = false
-
+    
     var body: some View {
         ZStack {
-          VStack {
-            HeaderView(
-                selectedTab: $selectedTab,
-                titleText: "Welcome"
-            )
-            .containerRelativeFrame(.vertical) { length, _ in
-              length * 0.2
+            VStack {
+                HeaderView(
+                    selectedTab: $selectedTab,
+                    titleText: "Welcome"
+                )
+                .containerRelativeFrame(.vertical) { length, _ in
+                    length * 0.2
+                }
+                Spacer()
+                VStack(alignment: .leading) {
+                    Text("Know your city")
+                        .font(.largeTitle)
+                    Text("and get help if you need it.")
+                        .font(.headline)
+                }
+                Spacer()
+                
+                Button(action: { isLastPage = true }) {
+                    Text("Get Started")
+                    Image(systemName: "arrow.right.circle")
+                }
+                .font(.title2)
+                .padding()
+                .fullScreenCover(isPresented: $isLastPage) {
+                    HomeDashboardView()
+                }
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.gray, lineWidth: 2))
+                
             }
-            Spacer()
-              
-            Button(action: { isLastPage = true }) {
-              Text("Get Started")
-              Image(systemName: "arrow.right.circle")
-            }
-            .font(.title2)
-            .padding()
-            .fullScreenCover(isPresented: $isLastPage) {
-                HomeDashboardView()
-            }
-            .background(
-              RoundedRectangle(cornerRadius: 20)
-              .stroke(Color.gray, lineWidth: 2))
-            
-          }
-          VStack {
-            HStack(alignment: .bottom) {
-              VStack(alignment: .leading) {
-                Text("Know your city")
-                  .font(.largeTitle)
-                Text("and get help if you need it.")
-                  .font(.headline)
-              }
-              Image("step-up")
-                .resizedToFill(width: 240, height: 240)
-                .clipShape(Circle())
-            }
-          }
         }
     }
 }

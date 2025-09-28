@@ -13,10 +13,9 @@ struct ContentView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-          PrincipalCarouselView(selectedTab: $selectedTab)
-          ForEach(PrincipalCarouselModel.models.indices, id: \.self) { index in
-              PrincipalCarouselSlideView(index: index)
-          }
+            ForEach(PrincipalCarouselModel.models.indices, id: \.self) { index in
+                PrincipalCarouselSlideView(index: index, selectedTab: $selectedTab)
+            }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         .indexViewStyle(
