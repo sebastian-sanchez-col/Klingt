@@ -11,7 +11,7 @@ import Foundation
 final class OnboardingCoordinator: ObservableObject {
     @Published var selectedIndex: Int = 0
 
-    let slides = PrincipalCarouselModel.models
+    let slides = OnboardingSlideModel.slidesFromScenarios
 
     var onFinish: (() -> Void)?
 

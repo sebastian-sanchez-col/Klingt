@@ -15,8 +15,8 @@ final class OnboardingViewModel: ObservableObject {
         self.coordinator = coordinator
     }
 
-    var slides: [PrincipalCarouselModel] { coordinator.slides }
-
+    let slides: [OnboardingScenario] = OnboardingScenario.allCases
+    
     var selectedIndex: Int {
         get { coordinator.selectedIndex }
         set { coordinator.selectedIndex = newValue }

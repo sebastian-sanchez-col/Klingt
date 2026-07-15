@@ -7,12 +7,25 @@
 
 
 import SwiftUI
-
 struct OnboardingView: View {
     @ObservedObject var viewModel: OnboardingViewModel
 
     var body: some View {
-        ZStack(alignment: .topTrailing) {
+        VStack(spacing: 0) {
+            HStack {
+                Spacer()
+                Button(action: {
+                    viewModel.skip()
+                }) {
+                    Text("Saltar")
+                        .font(.subheadline.bold())
+                        .foregroundColor(.gray)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                }
+            }
+            .padding(.top, 10)
+
             TabView(selection: $viewModel.selectedIndex) {
                 ForEach(viewModel.slides.indices, id: \.self) { index in
                     OnboardingSlideView(
@@ -25,15 +38,19 @@ struct OnboardingView: View {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .indexViewStyle(.page(backgroundDisplayMode: .always))
-
-            Button("Skip") {
-                viewModel.skip()
+            
+            HStack(spacing: 8) {
+                ForEach(viewModel.slides.indices, id: \.self) { index in
+                    Circle()
+                        .fill(viewModel.selectedIndex == index ? Color.blue : Color.gray.opacity(0.3))
+                        .frame(width: 8, height: 8)
+                        .scaleEffect(viewModel.selectedIndex == index ? 1.2 : 1.0)
+                        .animation(.spring(), value: viewModel.selectedIndex)
+                }
             }
-            .font(.subheadline.bold())
-            .foregroundStyle(.white)
-            .padding()
+            .padding(.bottom, 30)
         }
+        .background(Color(.systemBackground))
     }
 }
 

@@ -4,53 +4,81 @@
 //
 //  Created by Juan Sanchez on 15/07/26.
 //
-
 import SwiftUI
 
 struct OnboardingSlideView: View {
-    let slide: PrincipalCarouselModel
+    let slide: OnboardingScenario
     @Binding var selectedTab: Int
     let isLastSlide: Bool
     let onGetStarted: () -> Void
 
     var body: some View {
         VStack {
-            HeaderView(selectedTab: $selectedTab, titleText: "Welcome")
-                .containerRelativeFrame(.vertical) { length, _ in
-                    length * 0.2
-                }
-
-            Spacer()
-
-            VStack(alignment: .leading) {
-                Text(slide.name)
-                    .font(.largeTitle)
-                Text(slide.description)
-                    .font(.headline)
-            }
-            .padding(.horizontal)
-
-            Spacer()
-
-            Button(action: onGetStarted) {
-                Text(isLastSlide ? "Get Started" : "Next")
-                Image(systemName: "arrow.right.circle")
-            }
-            .font(.title2)
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.gray, lineWidth: 2)
+    
+            HeaderView(
+                selectedTab: $selectedTab,
+                titleText: isLastSlide ? "¡Todo listo!" : "Bienvenido"
             )
+            .containerRelativeFrame(.vertical) { length, _ in
+                length * 0.2
+            }
+
+            Spacer()
+            
+            Image(slide.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(maxHeight: 220)
+                .padding(.horizontal, 30)
+
+            Spacer()
+
+            VStack(alignment: .leading, spacing: 12) {
+                Text(slide.title)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.primary)
+                
+                Text(slide.description)
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .lineSpacing(4)
+            }
+            .padding(.horizontal, 24)
+
+            Spacer()
+
+            Button(action: {
+                if isLastSlide {
+                    onGetStarted()
+                } else {
+                    withAnimation {
+                        selectedTab += 1
+                    }
+                }
+            }) {
+                HStack(spacing: 8) {
+                    Text(isLastSlide ? "Comenzar" : "Siguiente")
+                        .fontWeight(.semibold)
+                    Image(systemName: isLastSlide ? "checkmark.circle.fill" : "arrow.right.circle.fill")
+                }
+                .font(.title3)
+                .foregroundColor(isLastSlide ? .white : .accentColor)
+                .padding(.vertical, 14)
+                .padding(.horizontal, 32)
+                .background(
+                    Group {
+                        if isLastSlide {
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color.accentColor)
+                        } else {
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.accentColor, lineWidth: 2)
+                        }
+                    }
+                )
+            }
+            .padding(.bottom, 20)
         }
     }
-}
-
-#Preview {
-    OnboardingSlideView(
-        slide: PrincipalCarouselModel.models[0],
-        selectedTab: .constant(0),
-        isLastSlide: false,
-        onGetStarted: {}
-    )
 }

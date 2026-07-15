@@ -16,6 +16,7 @@ struct RootView: View {
             OnboardingView(viewModel: OnboardingViewModel(coordinator: coordinator.onboardingCoordinator))
         case .main:
             MainTabView()
+                .environmentObject(coordinator.mainTabCoordinator)
         }
     }
 }
