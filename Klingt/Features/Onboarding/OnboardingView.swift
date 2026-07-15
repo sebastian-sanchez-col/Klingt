@@ -5,8 +5,8 @@
 //  Created by Juan Sanchez on 15/07/26.
 //
 
-
 import SwiftUI
+
 struct OnboardingView: View {
     @ObservedObject var viewModel: OnboardingViewModel
 
@@ -14,9 +14,7 @@ struct OnboardingView: View {
         VStack(spacing: 0) {
             HStack {
                 Spacer()
-                Button(action: {
-                    viewModel.skip()
-                }) {
+                Button(action: viewModel.skip) {
                     Text("Saltar")
                         .font(.subheadline.bold())
                         .foregroundColor(.gray)
@@ -32,23 +30,13 @@ struct OnboardingView: View {
                         slide: viewModel.slides[index],
                         selectedTab: $viewModel.selectedIndex,
                         isLastSlide: index == viewModel.slides.count - 1,
-                        onGetStarted: viewModel.next
+                        onNext: viewModel.next
                     )
                     .tag(index)
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            
-            HStack(spacing: 8) {
-                ForEach(viewModel.slides.indices, id: \.self) { index in
-                    Circle()
-                        .fill(viewModel.selectedIndex == index ? Color.blue : Color.gray.opacity(0.3))
-                        .frame(width: 8, height: 8)
-                        .scaleEffect(viewModel.selectedIndex == index ? 1.2 : 1.0)
-                        .animation(.spring(), value: viewModel.selectedIndex)
-                }
-            }
-            .padding(.bottom, 30)
+            .animation(.easeInOut, value: viewModel.selectedIndex)
         }
         .background(Color(.systemBackground))
     }

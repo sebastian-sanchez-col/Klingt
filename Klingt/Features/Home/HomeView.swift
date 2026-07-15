@@ -26,11 +26,20 @@ struct HomeView: View {
             Text(viewModel.subtitle)
                 .font(.title)
             Spacer()
+
+            Button(action: viewModel.showOnboardingAgain) {
+                Label("Ver introducción de nuevo", systemImage: "sparkles.rectangle.stack")
+                    .font(.subheadline.weight(.medium))
+            }
+            .buttonStyle(.bordered)
+            .tint(.secondary)
+            .controlSize(.regular)
+            .padding(.bottom, 12)
         }
         .padding()
     }
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewModel())
+    HomeView(viewModel: HomeViewModel(appCoordinator: AppCoordinator()))
 }

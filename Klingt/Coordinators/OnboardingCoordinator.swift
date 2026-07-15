@@ -11,12 +11,16 @@ import Foundation
 final class OnboardingCoordinator: ObservableObject {
     @Published var selectedIndex: Int = 0
 
-    let slides = OnboardingSlideModel.slidesFromScenarios
+    private let totalSlides: Int
 
     var onFinish: (() -> Void)?
 
+    init(totalSlides: Int = OnboardingScenario.allCases.count) {
+        self.totalSlides = totalSlides
+    }
+
     var isLastSlide: Bool {
-        selectedIndex == slides.count - 1
+        selectedIndex == totalSlides - 1
     }
 
     func next() {

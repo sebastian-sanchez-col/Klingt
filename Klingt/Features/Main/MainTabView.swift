@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @EnvironmentObject private var tabCoordinator: MainTabCoordinator
+    @EnvironmentObject private var appCoordinator: AppCoordinator
 
     var body: some View {
         TabView(selection: $tabCoordinator.selectedTab) {
@@ -17,7 +18,7 @@ struct MainTabView: View {
                 get: { tabCoordinator.homeCoordinator.path },
                 set: { tabCoordinator.homeCoordinator.path = $0 }
             )) {
-                HomeView(viewModel: HomeViewModel())
+                HomeView(viewModel: HomeViewModel(appCoordinator: appCoordinator))
                     .navigationDestination(for: HomeRoute.self) { route in
                         switch route {
                         case .recordingDetail(let id):

@@ -10,7 +10,7 @@ import SwiftUI
 struct RaisedButton: View {
     let buttonText: String
     let action: () -> Void
-
+    
     var body: some View {
         Button(action: {
             action()
@@ -23,36 +23,36 @@ struct RaisedButton: View {
 }
 
 struct RaisedButtonStyle: ButtonStyle {
-  func makeBody(configuration: Configuration) -> some View {
-    configuration.label
-      .frame(maxWidth: .infinity)
-      .padding([.top, .bottom], 12)
-      .background(
-        Capsule()
-      )
-  }
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(maxWidth: .infinity)
+            .padding([.top, .bottom], 12)
+            .background(
+                Capsule()
+            )
+    }
 }
 
 extension ButtonStyle where Self == RaisedButtonStyle {
-  static var raised: RaisedButtonStyle {
-    .init()
-  }
+    static var raised: RaisedButtonStyle {
+        .init()
+    }
 }
 
 extension Text {
-  func raisedButtonTextStyle() -> some View {
-    self
-      .font(.body)
-      .fontWeight(.bold)
-  }
+    func raisedButtonTextStyle() -> some View {
+        self
+            .font(.body)
+            .fontWeight(.bold)
+    }
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-  ZStack {
-    RaisedButton(buttonText: "Get Started") {
-      print("Hello World")
+    ZStack {
+        RaisedButton(buttonText: "Get Started") {
+            print("Hello World")
+        }
+        .buttonStyle(.raised)
+        .padding(20)
     }
-    .buttonStyle(.raised)
-    .padding(20)
-  }
 }

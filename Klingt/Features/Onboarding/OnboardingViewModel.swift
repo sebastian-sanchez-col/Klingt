@@ -11,12 +11,12 @@ import Foundation
 final class OnboardingViewModel: ObservableObject {
     private let coordinator: OnboardingCoordinator
 
+    let slides: [OnboardingScenario] = OnboardingScenario.allCases
+
     init(coordinator: OnboardingCoordinator) {
         self.coordinator = coordinator
     }
 
-    let slides: [OnboardingScenario] = OnboardingScenario.allCases
-    
     var selectedIndex: Int {
         get { coordinator.selectedIndex }
         set { coordinator.selectedIndex = newValue }

@@ -11,4 +11,14 @@ import Foundation
 final class HomeViewModel: ObservableObject {
     @Published var title = "Klingt"
     @Published var subtitle = "Express yourself"
+
+    private let appCoordinator: AppCoordinator
+
+    init(appCoordinator: AppCoordinator) {
+        self.appCoordinator = appCoordinator
+    }
+
+    func showOnboardingAgain() {
+        appCoordinator.replayOnboarding()
+    }
 }

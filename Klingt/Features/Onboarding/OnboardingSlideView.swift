@@ -4,17 +4,17 @@
 //
 //  Created by Juan Sanchez on 15/07/26.
 //
+
 import SwiftUI
 
 struct OnboardingSlideView: View {
     let slide: OnboardingScenario
     @Binding var selectedTab: Int
     let isLastSlide: Bool
-    let onGetStarted: () -> Void
+    let onNext: () -> Void
 
     var body: some View {
         VStack {
-    
             HeaderView(
                 selectedTab: $selectedTab,
                 titleText: isLastSlide ? "¡Todo listo!" : "Bienvenido"
@@ -24,7 +24,7 @@ struct OnboardingSlideView: View {
             }
 
             Spacer()
-            
+
             Image(slide.imageName)
                 .resizable()
                 .scaledToFit()
@@ -38,7 +38,7 @@ struct OnboardingSlideView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundStyle(.primary)
-                
+
                 Text(slide.description)
                     .font(.body)
                     .foregroundStyle(.secondary)
@@ -48,15 +48,7 @@ struct OnboardingSlideView: View {
 
             Spacer()
 
-            Button(action: {
-                if isLastSlide {
-                    onGetStarted()
-                } else {
-                    withAnimation {
-                        selectedTab += 1
-                    }
-                }
-            }) {
+            Button(action: onNext) {
                 HStack(spacing: 8) {
                     Text(isLastSlide ? "Comenzar" : "Siguiente")
                         .fontWeight(.semibold)

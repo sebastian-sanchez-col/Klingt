@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 @MainActor
 final class AppCoordinator: ObservableObject {
@@ -38,5 +37,10 @@ final class AppCoordinator: ObservableObject {
     private func completeOnboarding() {
         defaults.set(true, forKey: hasSeenOnboardingKey)
         flow = .main
+    }
+    
+    func replayOnboarding() {
+        onboardingCoordinator.selectedIndex = 0
+        flow = .onboarding
     }
 }
