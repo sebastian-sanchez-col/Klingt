@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct KlingtApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject private var appCoordinator = AppCoordinator()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(appCoordinator)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
