@@ -13,7 +13,6 @@ protocol CommunityServiceProtocol {
 
 final class CommunityService: CommunityServiceProtocol {
     func fetchPosts() async throws -> [CommunityPost] {
-        // TODO: reemplazar por llamada real
         try await Task.sleep(nanoseconds: 300_000_000)
         return [
             CommunityPost(id: UUID(), authorName: "María P.", minutesAgo: 1, title: "¿Alguien sabe de arriendos económicos cerca del Metro?", commentsCount: 25, likesCount: 10, category: .vivienda),

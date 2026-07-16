@@ -7,13 +7,16 @@
 
 import Foundation
 
-@MainActor
-final class OnboardingCoordinator: ObservableObject {
-    @Published var selectedIndex: Int = 0
-
-    private let totalSlides: Int
-
+final class OnboardingCoordinator: ObservableObject, @MainActor Coordinator {
+    @Published var selectedTab: MainTab = .home
+    var childCoordinators: [Coordinator] = []
     var onFinish: (() -> Void)?
+    var selectedIndex = 0
+    private let totalSlides: Int
+    
+    func start() {
+        
+    }
 
     init(totalSlides: Int = OnboardingScenario.allCases.count) {
         self.totalSlides = totalSlides

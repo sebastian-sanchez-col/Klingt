@@ -7,40 +7,98 @@
 
 import Foundation
 
-@MainActor
-final class AppCoordinator: ObservableObject {
+protocol Coordinator: AnyObject {
+    var childCoordinators: [Coordinator] { get set }
+    func start()
+}
 
-    enum Flow {
-        case onboarding
-        case main
+protocol SelfInstantiatingCoordinator: Coordinator {
+    static func make() -> Self
+}
+
+extension Coordinator {
+    func existingChildCoordinator<T: Coordinator>(ofType type: T.Type) -> T? {
+        childCoordinators.first { $0 is T } as? T
     }
 
-    @Published var flow: Flow
+    func childCoordinator<T: SelfInstantiatingCoordinator>(ofType type: T.Type) -> T {
+        if let existing = existingChildCoordinator(ofType: type) {
+            return existing
+        }
+        let new = T.make()
+        childCoordinators.append(new)
+        return new
+    }
+}
 
-    let onboardingCoordinator: OnboardingCoordinator
-    let mainTabCoordinator = MainTabCoordinator()
-
-    private let hasSeenOnboardingKey = "hasSeenOnboarding"
+final class AppCoordinator: ObservableObject, @MainActor Coordinator {
+    enum AppRoute {
+        case onboarding(OnboardingCoordinator)
+        case main(MainTabCoordinator)
+    }
+    
+    @Published var route: AppRoute
+    private let hasSeenOnboardingKey: String = "hasSeenOnboarding"
     private let defaults: UserDefaults
-
+    var childCoordinators: [Coordinator] = []
+    
+    @MainActor
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
-        let hasSeenOnboarding = defaults.bool(forKey: hasSeenOnboardingKey)
-        self.flow = hasSeenOnboarding ? .main : .onboarding
-        self.onboardingCoordinator = OnboardingCoordinator()
-
-        self.onboardingCoordinator.onFinish = { [weak self] in
+        
+        let onboardingCoordinator = OnboardingCoordinator()
+        route = .onboarding(onboardingCoordinator)
+        
+        onboardingCoordinator.onFinish = { [weak self] in
             self?.completeOnboarding()
         }
     }
-
+    
+    @MainActor
     private func completeOnboarding() {
         defaults.set(true, forKey: hasSeenOnboardingKey)
-        flow = .main
+        showMain()
     }
     
+    @MainActor
+    private func createOnboardingCoordinator() -> OnboardingCoordinator {
+        let onboardingCoordinator = OnboardingCoordinator()
+
+        onboardingCoordinator.onFinish = { [weak self] in
+            self?.completeOnboarding()
+        }
+        return onboardingCoordinator
+    }
+    
+    @MainActor
+    func start() {
+        let hasSeenOnboarding = defaults.bool(forKey: hasSeenOnboardingKey)
+        if hasSeenOnboarding {
+            showMain()
+        } else {
+            showOnboarding()
+        }
+    }
+    
+    @MainActor
+    func showMain() {
+        let mainTabCoordinator = MainTabCoordinator()
+        childCoordinators.append(mainTabCoordinator)
+        mainTabCoordinator.start()
+        route = .main(mainTabCoordinator)
+    }
+    
+    @MainActor
+    func showOnboarding() {
+        let onboardingCoordinator = createOnboardingCoordinator()
+        route = .onboarding(onboardingCoordinator)
+    }
+    
+    @MainActor
     func replayOnboarding() {
+        childCoordinators.removeAll { $0 is OnboardingCoordinator }
+        let onboardingCoordinator = createOnboardingCoordinator()
         onboardingCoordinator.selectedIndex = 0
-        flow = .onboarding
+        route = .onboarding(onboardingCoordinator)
     }
 }

@@ -35,14 +35,14 @@ struct MainTabView: View {
     private var homeTab: some View {
         NavigationStack(path: homePathBinding) {
             HomeView(viewModel: HomeViewModel(
-                homeCoordinator: tabCoordinator.homeCoordinator,
+                homeCoordinator: tabCoordinator.childCoordinator(ofType: HomeCoordinator.self),
                 tabCoordinator: tabCoordinator
             ))
             .navigationDestination(for: HomeRoute.self) { route in
                 switch route {
                 case .taskList:
                     TaskListView(viewModel: HomeViewModel(
-                        homeCoordinator: tabCoordinator.homeCoordinator,
+                        homeCoordinator: tabCoordinator.childCoordinator(ofType: HomeCoordinator.self),
                         tabCoordinator: tabCoordinator
                     ))
                 }
@@ -53,7 +53,7 @@ struct MainTabView: View {
     @ViewBuilder
     private var mapTab: some View {
         NavigationStack(path: mapPathBinding) {
-            MapView(viewModel: MapViewModel(coordinator: tabCoordinator.mapCoordinator))
+            MapView(viewModel: MapViewModel(coordinator: tabCoordinator.childCoordinator(ofType: MapCoordinator.self)))
                 .navigationDestination(for: MapRoute.self) { route in
                     switch route {
                     case .resourceDetail(let resource):
@@ -66,7 +66,7 @@ struct MainTabView: View {
     @ViewBuilder
     private var communityTab: some View {
         NavigationStack(path: communityPathBinding) {
-            CommunityView(viewModel: CommunityViewModel(coordinator: tabCoordinator.communityCoordinator))
+            CommunityView(viewModel: CommunityViewModel(coordinator: tabCoordinator.childCoordinator(ofType: CommunityCoordinator.self)))
                 .navigationDestination(for: CommunityRoute.self) { route in
                     switch route {
                     case .postDetail(let post):
@@ -79,12 +79,12 @@ struct MainTabView: View {
     @ViewBuilder
     private var profileTab: some View {
         NavigationStack(path: profilePathBinding) {
-            ProfileView(viewModel: ProfileViewModel(coordinator: tabCoordinator.profileCoordinator))
+            ProfileView(viewModel: ProfileViewModel(coordinator: tabCoordinator.childCoordinator(ofType: ProfileCoordinator.self)))
                 .navigationDestination(for: ProfileRoute.self) { route in
                     switch route {
                     case .settings:
                         SettingsView(viewModel: SettingsViewModel(
-                            profileCoordinator: tabCoordinator.profileCoordinator,
+                            profileCoordinator: tabCoordinator.childCoordinator(ofType: ProfileCoordinator.self),
                             appCoordinator: appCoordinator
                         ))
                     case .notifications:
@@ -96,29 +96,29 @@ struct MainTabView: View {
     
     private var homePathBinding: Binding<NavigationPath> {
         Binding(
-            get: { tabCoordinator.homeCoordinator.path },
-            set: { tabCoordinator.homeCoordinator.path = $0 }
+            get: { tabCoordinator.childCoordinator(ofType: HomeCoordinator.self).path },
+            set: { tabCoordinator.childCoordinator(ofType: HomeCoordinator.self).path = $0 }
         )
     }
 
     private var mapPathBinding: Binding<NavigationPath> {
         Binding(
-            get: { tabCoordinator.mapCoordinator.path },
-            set: { tabCoordinator.mapCoordinator.path = $0 }
+            get: { tabCoordinator.childCoordinator(ofType: MapCoordinator.self).path },
+            set: { tabCoordinator.childCoordinator(ofType: MapCoordinator.self).path = $0 }
         )
     }
 
     private var communityPathBinding: Binding<NavigationPath> {
         Binding(
-            get: { tabCoordinator.communityCoordinator.path },
-            set: { tabCoordinator.communityCoordinator.path = $0 }
+            get: { tabCoordinator.childCoordinator(ofType: CommunityCoordinator.self).path },
+            set: { tabCoordinator.childCoordinator(ofType: CommunityCoordinator.self).path = $0 }
         )
     }
 
     private var profilePathBinding: Binding<NavigationPath> {
         Binding(
-            get: { tabCoordinator.profileCoordinator.path },
-            set: { tabCoordinator.profileCoordinator.path = $0 }
+            get: { tabCoordinator.childCoordinator(ofType: ProfileCoordinator.self).path },
+            set: { tabCoordinator.childCoordinator(ofType: ProfileCoordinator.self).path = $0 }
         )
     }
 }

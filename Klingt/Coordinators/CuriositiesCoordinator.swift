@@ -12,10 +12,21 @@ enum CuriositiesRoute: Hashable {
     case topicDetail(id: String)
 }
 
-@MainActor
-final class CuriositiesCoordinator: ObservableObject {
+final class CuriositiesCoordinator: ObservableObject, Coordinator, SelfInstantiatingCoordinator {
+    
+    
     @Published var path = NavigationPath()
-
+    
+    var childCoordinators: [Coordinator] = []
+    
+    static func make() -> CuriositiesCoordinator {
+        return CuriositiesCoordinator()
+    }
+    
+    func start() {
+        
+    }
+    
     func push(_ route: CuriositiesRoute) {
         path.append(route)
     }

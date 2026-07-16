@@ -13,10 +13,20 @@ enum ProfileRoute: Hashable {
     case notifications
 }
 
-@MainActor
-final class ProfileCoordinator: ObservableObject {
+final class ProfileCoordinator: ObservableObject, Coordinator, SelfInstantiatingCoordinator {
+    
     @Published var path = NavigationPath()
-
+    
+    var childCoordinators: [Coordinator] = []
+    
+    static func make() -> ProfileCoordinator {
+        return ProfileCoordinator()
+    }
+    
+    func start() {
+        
+    }
+    
     func push(_ route: ProfileRoute) {
         path.append(route)
     }

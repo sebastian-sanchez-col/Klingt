@@ -11,12 +11,12 @@ struct RootView: View {
     @EnvironmentObject private var coordinator: AppCoordinator
 
     var body: some View {
-        switch coordinator.flow {
-        case .onboarding:
-            OnboardingView(viewModel: OnboardingViewModel(coordinator: coordinator.onboardingCoordinator))
-        case .main:
+        switch coordinator.route {
+        case .onboarding(let onboardingCoordinator):
+            OnboardingView(viewModel: OnboardingViewModel(coordinator: onboardingCoordinator))
+        case .main(let mainTabCoordinator):
             MainTabView()
-                .environmentObject(coordinator.mainTabCoordinator)
+                .environmentObject(mainTabCoordinator)
         }
     }
 }

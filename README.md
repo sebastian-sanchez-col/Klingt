@@ -11,9 +11,6 @@ publicaciones propias.
 |---|---|
 | ![Onboarding](Demo/onboarding.gif) | ![Tabs](Demo/tabs.gif) |
 
-> Los GIFs viven en la carpeta `Demo/` en la raíz del repo (`Demo/onboarding.gif` y
-> `Demo/tabs.gif`). Si les cambias el nombre, actualiza las rutas de arriba.
-
 ## Características principales
 
 - **Onboarding** de bienvenida (carrusel de 3 pasos), que se muestra una única vez y puede

@@ -12,9 +12,18 @@ enum HomeRoute: Hashable {
     case taskList
 }
 
-@MainActor
-final class HomeCoordinator: ObservableObject {
+final class HomeCoordinator: ObservableObject, Coordinator, SelfInstantiatingCoordinator {
+    static func make() -> HomeCoordinator {
+        return HomeCoordinator()
+    }
+    
     @Published var path = NavigationPath()
+    
+    var childCoordinators: [Coordinator] = []
+    
+    func start() {
+    
+    }
 
     func push(_ route: HomeRoute) {
         path.append(route)

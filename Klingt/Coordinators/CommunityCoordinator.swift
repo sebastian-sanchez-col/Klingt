@@ -12,10 +12,19 @@ enum CommunityRoute: Hashable {
     case postDetail(CommunityPost)
 }
 
-@MainActor
-final class CommunityCoordinator: ObservableObject {
+final class CommunityCoordinator: ObservableObject, Coordinator, SelfInstantiatingCoordinator {
     @Published var path = NavigationPath()
-
+    
+    var childCoordinators: [Coordinator] = []
+    
+    static func make() -> CommunityCoordinator {
+        return CommunityCoordinator()
+    }
+    
+    func start() {
+        
+    }
+    
     func push(_ route: CommunityRoute) {
         path.append(route)
     }

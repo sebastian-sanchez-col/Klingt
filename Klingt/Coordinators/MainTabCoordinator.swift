@@ -11,12 +11,23 @@ enum MainTab: Hashable {
     case home, map, community, profile
 }
 
-@MainActor
-final class MainTabCoordinator: ObservableObject {
+final class MainTabCoordinator: ObservableObject, @MainActor Coordinator {
     @Published var selectedTab: MainTab = .home
-
-    let homeCoordinator = HomeCoordinator()
-    let mapCoordinator = MapCoordinator()
-    let communityCoordinator = CommunityCoordinator()
-    let profileCoordinator = ProfileCoordinator()
+    var childCoordinators: [Coordinator] = []
+    
+    func start() {
+        
+    }
+    
+    init(
+        homeCoordinator: HomeCoordinator = HomeCoordinator(),
+        mapCoordinator: MapCoordinator = MapCoordinator(),
+        communityCoordinator: CommunityCoordinator = CommunityCoordinator(),
+        profileCoordinator: ProfileCoordinator = ProfileCoordinator()
+    ) {
+        childCoordinators.append(homeCoordinator)
+        childCoordinators.append(mapCoordinator)
+        childCoordinators.append(communityCoordinator)
+        childCoordinators.append(profileCoordinator)
+    }
 }

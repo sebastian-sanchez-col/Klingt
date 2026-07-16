@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C2304B830091C35008D0ABF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2304B730091C2E008D0ABF /* ErrorView.swift */; };
 		9C46C07F3006F46F0097B888 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46C07E3006F46F0097B888 /* AppCoordinator.swift */; };
 		9C46C0813006F5050097B888 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46C0803006F5050097B888 /* MapCoordinator.swift */; };
 		9C46C0833006F5B70097B888 /* CommunityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46C0823006F5AC0097B888 /* CommunityCoordinator.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C2304B730091C2E008D0ABF /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9C46C07E3006F46F0097B888 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9C46C0803006F5050097B888 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		9C46C0823006F5AC0097B888 /* CommunityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCoordinator.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C2304B630091BF8008D0ABF /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				9C2304B730091C2E008D0ABF /* ErrorView.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		9C46C07D3006F42A0097B888 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +164,7 @@
 		9C46C09B3007033E0097B888 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				9C2304B630091BF8008D0ABF /* Error */,
 				9CD27A7A30084DB400FC0724 /* Map */,
 				9CD27A6F3008349000FC0724 /* Community */,
 				9CD27A6A3008342000FC0724 /* Resource */,
@@ -423,6 +434,7 @@
 				9C7573B82E4E0C1200C853DB /* OnboardingSlideModel.swift in Sources */,
 				9C46C0923006FDAD0097B888 /* MainTabCoordinator.swift in Sources */,
 				9CCCE7742E4CD9540037BED6 /* ChatHistoryView.swift in Sources */,
+				9C2304B830091C35008D0ABF /* ErrorView.swift in Sources */,
 				9CE5C6FE3007BE67005112DA /* OnboardingScenario.swift in Sources */,
 				9C46C0813006F5050097B888 /* MapCoordinator.swift in Sources */,
 				9CD27A7F30084DF400FC0724 /* MapView.swift in Sources */,
