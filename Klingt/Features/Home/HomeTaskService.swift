@@ -15,9 +15,9 @@ final class HomeTaskService: HomeTaskServiceProtocol {
     func fetchTasks() async throws -> [HomeTask] {
         try await Task.sleep(nanoseconds: 200_000_000)
         return [
-            HomeTask(id: UUID(), title: "Sacar el documento de identidad", isCompleted: true, section: "Trámites Iniciales"),
-            HomeTask(id: UUID(), title: "Abrir cuenta bancaria", isCompleted: false, section: "Trámites Iniciales"),
-            HomeTask(id: UUID(), title: "Buscar alojamiento temporal", isCompleted: false, section: "Vivienda")
+            HomeTask(id: UUID(), title: "Sacar el documento de identidad", section: "Trámites Iniciales", isCompleted: true),
+            HomeTask(id: UUID(), title: "Abrir cuenta bancaria", section: "Trámites Iniciales", isCompleted: false),
+            HomeTask(id: UUID(), title: "Buscar alojamiento temporal", section: "Vivienda", isCompleted: false)
         ]
     }
 }

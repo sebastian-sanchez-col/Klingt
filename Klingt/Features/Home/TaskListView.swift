@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskListView: View {
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var viewModel: TaskListViewModel
 
     private var progress: Double {
         guard !viewModel.tasks.isEmpty else { return 0 }
@@ -80,6 +80,6 @@ struct TaskListView: View {
 
 #Preview {
     NavigationStack {
-        TaskListView(viewModel: HomeViewModel(homeCoordinator: HomeCoordinator(), tabCoordinator: MainTabCoordinator()))
+        TaskListView(viewModel: TaskListViewModel(homeCoordinator: HomeCoordinator(), tabCoordinator: MainTabCoordinator()))
     }
 }

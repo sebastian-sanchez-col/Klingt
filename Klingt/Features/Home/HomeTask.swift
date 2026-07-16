@@ -7,9 +7,24 @@
 
 import Foundation
 
-struct HomeTask: Identifiable, Hashable {
+struct HomeTask: Identifiable, Equatable {
     let id: UUID
-    let title: String
+    var title: String
+    var section: String
     var isCompleted: Bool
-    let section: String
+    var dueDate: Date?
+
+    init(
+        id: UUID = UUID(),
+        title: String,
+        section: String,
+        isCompleted: Bool = false,
+        dueDate: Date? = nil
+    ) {
+        self.id = id
+        self.title = title
+        self.section = section
+        self.isCompleted = isCompleted
+        self.dueDate = dueDate
+    }
 }

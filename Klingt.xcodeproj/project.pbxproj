@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C2304B830091C35008D0ABF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2304B730091C2E008D0ABF /* ErrorView.swift */; };
+		9C2304BD30093174008D0ABF /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2304BC30093164008D0ABF /* TaskListViewModel.swift */; };
 		9C46C07F3006F46F0097B888 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46C07E3006F46F0097B888 /* AppCoordinator.swift */; };
 		9C46C0813006F5050097B888 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46C0803006F5050097B888 /* MapCoordinator.swift */; };
 		9C46C0833006F5B70097B888 /* CommunityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46C0823006F5AC0097B888 /* CommunityCoordinator.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		9C2304B730091C2E008D0ABF /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		9C2304BC30093164008D0ABF /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		9C46C07E3006F46F0097B888 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9C46C0803006F5050097B888 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		9C46C0823006F5AC0097B888 /* CommunityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCoordinator.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		9C46C09D300703570097B888 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9C2304BC30093164008D0ABF /* TaskListViewModel.swift */,
 				9CD27A7830084D8700FC0724 /* TaskListView.swift */,
 				9CD27A763008355D00FC0724 /* HomeTaskService.swift */,
 				9CD27A70300834C800FC0724 /* HomeTask.swift */,
@@ -411,6 +414,7 @@
 			files = (
 				9CD27A7C30084DC300FC0724 /* MapViewModel.swift in Sources */,
 				9C85DFB62E0348C700C82977 /* Klingt.xcdatamodeld in Sources */,
+				9C2304BD30093174008D0ABF /* TaskListViewModel.swift in Sources */,
 				9C46C0B530070C470097B888 /* OnboardingView.swift in Sources */,
 				9CD27A8730084F5700FC0724 /* PostDetailView.swift in Sources */,
 				9CD27A6E3008348100FC0724 /* CommunityPost.swift in Sources */,
