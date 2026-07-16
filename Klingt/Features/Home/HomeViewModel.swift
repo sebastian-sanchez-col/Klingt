@@ -9,16 +9,43 @@ import Foundation
 
 @MainActor
 final class HomeViewModel: ObservableObject {
-    @Published var title = "Klingt"
-    @Published var subtitle = "Express yourself"
+    @Published var userName = "User"
+    @Published private(set) var tasks: [HomeTask] = []
+    @Published private(set) var nearbyResources: [Resource] = []
 
-    private let appCoordinator: AppCoordinator
+    private let taskService: HomeTaskServiceProtocol
+    private let resourceService: ResourceServiceProtocol
+    private let homeCoordinator: HomeCoordinator
+    private let tabCoordinator: MainTabCoordinator
 
-    init(appCoordinator: AppCoordinator) {
-        self.appCoordinator = appCoordinator
+    init(
+        taskService: HomeTaskServiceProtocol = HomeTaskService(),
+        resourceService: ResourceServiceProtocol = ResourceService(),
+        homeCoordinator: HomeCoordinator,
+        tabCoordinator: MainTabCoordinator
+    ) {
+        self.taskService = taskService
+        self.resourceService = resourceService
+        self.homeCoordinator = homeCoordinator
+        self.tabCoordinator = tabCoordinator
     }
 
-    func showOnboardingAgain() {
-        appCoordinator.replayOnboarding()
+    var pendingTasksCount: Int {
+        tasks.filter { !$0.isCompleted }.count
+    }
+
+    func load() async {
+        async let loadedTasks = (try? taskService.fetchTasks()) ?? []
+        async let loadedResources = (try? resourceService.fetchNearbyResources()) ?? []
+        tasks = await loadedTasks
+        nearbyResources = await loadedResources
+    }
+
+    func openTaskList() {
+        homeCoordinator.push(.taskList)
+    }
+
+    func openFullMap() {
+        tabCoordinator.selectedTab = .map
     }
 }

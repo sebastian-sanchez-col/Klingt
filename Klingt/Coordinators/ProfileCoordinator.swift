@@ -9,14 +9,20 @@ import Foundation
 import SwiftUI
 
 enum ProfileRoute: Hashable {
-    case postDetail(ProfilePost)
+    case settings
+    case notifications
 }
 
 @MainActor
 final class ProfileCoordinator: ObservableObject {
     @Published var path = NavigationPath()
 
-    func showDetail(for post: ProfilePost) {
-        path.append(ProfileRoute.postDetail(post))
+    func push(_ route: ProfileRoute) {
+        path.append(route)
+    }
+
+    func pop() {
+        guard !path.isEmpty else { return }
+        path.removeLast()
     }
 }

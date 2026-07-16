@@ -13,17 +13,24 @@ final class ProfileViewModel: ObservableObject {
     @Published var email: String
     @Published private(set) var posts: [ProfilePost] = []
     @Published private(set) var isLoadingPosts = false
-
+    
     private let postService: ProfilePostServiceProtocol
-
+    private let coordinator: ProfileCoordinator
+    
     init(
         name: String = "Alguien",
         email: String = "Alguien@example.com",
-        postService: ProfilePostServiceProtocol = ProfilePostService()
+        postService: ProfilePostServiceProtocol = ProfilePostService(),
+        coordinator: ProfileCoordinator
     ) {
         self.name = name
         self.email = email
         self.postService = postService
+        self.coordinator = coordinator
+    }
+
+    func openSettings() {
+        coordinator.push(.settings)
     }
 
     func save() {

@@ -17,6 +17,11 @@ struct CommunityPost: Identifiable, Hashable {
     let category: PostCategory
 }
 
-enum PostCategory: String, CaseIterable {
-    case todos, vivienda, trabajo, historias
+enum PostCategory: String, CaseIterable, Identifiable {
+    case todos = "Todos"
+    case vivienda = "Vivienda"
+    case trabajo = "Trabajo"
+    case historias = "Historias"
+
+    var id: String { rawValue }
 }

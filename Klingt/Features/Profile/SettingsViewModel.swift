@@ -1,14 +1,14 @@
 //
-//  ConfigurationViewModel.swift
+//  SettingsViewModel.swift
 //  Klingt
 //
-//  Created by Juan Sanchez on 15/07/26.
+//  Created by Juan Sanchez on 16/07/26.
 //
 
 import Foundation
 
 @MainActor
-final class ConfigurationViewModel: ObservableObject {
+final class SettingsViewModel: ObservableObject {
     private let profileCoordinator: ProfileCoordinator
     private let appCoordinator: AppCoordinator
 

@@ -16,11 +16,12 @@ enum MapRoute: Hashable {
 final class MapCoordinator: ObservableObject {
     @Published var path = NavigationPath()
 
-    func showDetail(for resource: Resource) {
-        path.append(MapRoute.resourceDetail(resource))
+    func push(_ route: MapRoute) {
+        path.append(route)
     }
 
     func pop() {
+        guard !path.isEmpty else { return }
         path.removeLast()
     }
 }

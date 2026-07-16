@@ -8,7 +8,7 @@
 import Foundation
 
 enum MainTab: Hashable {
-    case home, curiosities, configuration
+    case home, map, community, profile
 }
 
 @MainActor
@@ -16,6 +16,7 @@ final class MainTabCoordinator: ObservableObject {
     @Published var selectedTab: MainTab = .home
 
     let homeCoordinator = HomeCoordinator()
-    let curiositiesCoordinator = CuriositiesCoordinator()
-    let configurationCoordinator = ConfigurationCoordinator()
+    let mapCoordinator = MapCoordinator()
+    let communityCoordinator = CommunityCoordinator()
+    let profileCoordinator = ProfileCoordinator()
 }

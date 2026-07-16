@@ -42,11 +42,20 @@ struct ProfileView: View {
         .task {
             await viewModel.loadPosts()
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    viewModel.openSettings()
+                } label: {
+                    Image(systemName: "gearshape")
+                }
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        ProfileView(viewModel: ProfileViewModel())
+        ProfileView(viewModel: ProfileViewModel(coordinator: ProfileCoordinator()))
     }
 }

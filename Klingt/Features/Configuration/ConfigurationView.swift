@@ -5,6 +5,7 @@
 //  Created by Juan Sanchez on 15/07/26.
 //
 
+import Foundation
 import SwiftUI
 
 struct ConfigurationView: View {
@@ -12,19 +13,19 @@ struct ConfigurationView: View {
 
     var body: some View {
         List {
-            Button("Perfil") {
-                viewModel.goToProfile()
+            Button("Ver introducción de nuevo") {
+                viewModel.replayOnboarding()
             }
             Button("Notificaciones") {
                 viewModel.goToNotifications()
             }
         }
-        .navigationTitle("Configuration")
+        .navigationTitle("Configuración")
     }
 }
 
 #Preview {
     NavigationStack {
-        ConfigurationView(viewModel: ConfigurationViewModel(coordinator: ConfigurationCoordinator()))
+        ConfigurationView(viewModel: ConfigurationViewModel(profileCoordinator: ProfileCoordinator(), appCoordinator: AppCoordinator()))
     }
 }

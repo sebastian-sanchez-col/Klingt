@@ -16,7 +16,12 @@ enum CommunityRoute: Hashable {
 final class CommunityCoordinator: ObservableObject {
     @Published var path = NavigationPath()
 
-    func showDetail(for post: CommunityPost) {
-        path.append(CommunityRoute.postDetail(post))
+    func push(_ route: CommunityRoute) {
+        path.append(route)
+    }
+
+    func pop() {
+        guard !path.isEmpty else { return }
+        path.removeLast()
     }
 }
