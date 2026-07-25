@@ -12,7 +12,7 @@ enum MapRoute: Hashable {
     case resourceDetail(Resource)
 }
 
-final class MapCoordinator: ObservableObject, Coordinator, SelfInstantiatingCoordinator {
+final class MapCoordinator: ObservableObject, @MainActor Coordinator, SelfInstantiatingCoordinator {
     @Published var path = NavigationPath()
     
     var childCoordinators: [Coordinator] = []
@@ -21,15 +21,18 @@ final class MapCoordinator: ObservableObject, Coordinator, SelfInstantiatingCoor
         return MapCoordinator()
     }
     
+    @MainActor 
     func start() {
         
     }
     
-
+    
+    @MainActor 
     func push(_ route: MapRoute) {
         path.append(route)
     }
-
+    
+    @MainActor 
     func pop() {
         guard !path.isEmpty else { return }
         path.removeLast()

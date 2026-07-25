@@ -121,7 +121,7 @@ struct MainTabView: View {
             ProfileTabRootView(coordinator: profileCoordinator)
                 .navigationDestination(for: ProfileRoute.self) { route in
                     switch route {
-                    case .settings:
+                    case .profileSettings:
                         SettingsView(viewModel: SettingsViewModel(
                             profileCoordinator: profileCoordinator,
                             appCoordinator: appCoordinator

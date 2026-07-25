@@ -12,7 +12,7 @@ enum HomeRoute: Hashable {
     case taskList
 }
 
-final class HomeCoordinator: ObservableObject, Coordinator, SelfInstantiatingCoordinator {
+final class HomeCoordinator: ObservableObject, @MainActor Coordinator, SelfInstantiatingCoordinator {
     
     @Published var path = NavigationPath()
     
@@ -22,14 +22,17 @@ final class HomeCoordinator: ObservableObject, Coordinator, SelfInstantiatingCoo
         return HomeCoordinator()
     }
     
+    @MainActor
     func start() {
-    
+        path.append(HomeRoute.taskList)
     }
 
+    @MainActor
     func push(_ route: HomeRoute) {
         path.append(route)
     }
-
+    
+    @MainActor
     func pop() {
         guard !path.isEmpty else { return }
         path.removeLast()

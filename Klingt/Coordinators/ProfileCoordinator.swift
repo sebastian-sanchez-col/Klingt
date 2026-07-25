@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 enum ProfileRoute: Hashable {
-    case settings
+    case profileSettings
     case notifications
 }
 
-final class ProfileCoordinator: ObservableObject, Coordinator, SelfInstantiatingCoordinator {
+final class ProfileCoordinator: ObservableObject, @MainActor Coordinator, SelfInstantiatingCoordinator {
     
     @Published var path = NavigationPath()
     
@@ -23,14 +23,17 @@ final class ProfileCoordinator: ObservableObject, Coordinator, SelfInstantiating
         return ProfileCoordinator()
     }
     
+    @MainActor
     func start() {
         
     }
     
+    @MainActor
     func push(_ route: ProfileRoute) {
         path.append(route)
     }
-
+    
+    @MainActor
     func pop() {
         guard !path.isEmpty else { return }
         path.removeLast()

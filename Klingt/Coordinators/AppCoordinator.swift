@@ -46,11 +46,15 @@ final class AppCoordinator: ObservableObject, @MainActor Coordinator {
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
         
-        let onboardingCoordinator = OnboardingCoordinator()
-        route = .onboarding(onboardingCoordinator)
-        
-        onboardingCoordinator.onFinish = { [weak self] in
-            self?.completeOnboarding()
+        if defaults.bool(forKey: hasSeenOnboardingKey) {
+            route = .main(MainTabCoordinator())
+        } else {
+            let onboardingCoordinator = OnboardingCoordinator()
+            route = .onboarding(onboardingCoordinator)
+            
+            onboardingCoordinator.onFinish = { [weak self] in
+                self?.completeOnboarding()
+            }
         }
     }
     
@@ -82,6 +86,7 @@ final class AppCoordinator: ObservableObject, @MainActor Coordinator {
     
     @MainActor
     func showMain() {
+        childCoordinators.removeAll { $0 is OnboardingCoordinator }
         let mainTabCoordinator = MainTabCoordinator()
         childCoordinators.append(mainTabCoordinator)
         mainTabCoordinator.start()

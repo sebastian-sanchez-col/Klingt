@@ -30,7 +30,7 @@ final class ProfileViewModel: ObservableObject {
     }
 
     func openSettings() {
-        coordinator.push(.settings)
+        coordinator.push(.profileSettings)
     }
 
     func save() {
