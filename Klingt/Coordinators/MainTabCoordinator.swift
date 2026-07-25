@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 enum MainTab: Hashable {
     case home, map, community, profile
@@ -14,7 +13,7 @@ enum MainTab: Hashable {
 
 final class MainTabCoordinator: ObservableObject, @MainActor Coordinator {
     @Published var selectedTab: MainTab = .home
-    private var cancellables = Set<AnyCancellable>()
+    private let changeForwarder = ChangeForwarder()
     var childCoordinators: [Coordinator] = []
     
     func start() {
@@ -33,19 +32,9 @@ final class MainTabCoordinator: ObservableObject, @MainActor Coordinator {
         childCoordinators.append(communityCoordinator)
         childCoordinators.append(profileCoordinator)
 
-        observe(homeCoordinator)
-        observe(mapCoordinator)
-        observe(communityCoordinator)
-        observe(profileCoordinator)
-    }
-
-    private func observe<T: ObservableObject>(_ coordinator: T)
-        where T.ObjectWillChangePublisher == ObservableObjectPublisher
-    {
-        coordinator.objectWillChange
-            .sink { [weak self] _ in
-                self?.objectWillChange.send()
-            }
-            .store(in: &cancellables)
+        // Forward each child's changes so this coordinator (and its observers) re-render.
+        changeForwarder.forward(childCoordinators) { [weak self] in
+            self?.objectWillChange.send()
+        }
     }
 }

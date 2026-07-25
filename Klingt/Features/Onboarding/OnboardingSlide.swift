@@ -1,5 +1,5 @@
 //
-//  OnboardingScenario.swift
+//  OnboardingSlide.swift
 //  Klingt
 //
 //  Created by Juan Sanchez on 15/07/26.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum OnboardingScenario: Int, CaseIterable {
+enum OnboardingSlide: Int, CaseIterable {
     case tasks = 0
     case map
     case community

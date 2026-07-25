@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingSlideView: View {
-    let slide: OnboardingScenario
+    let slide: OnboardingSlide
     @Binding var selectedTab: Int
     let isLastSlide: Bool
     let onNext: () -> Void

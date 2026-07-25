@@ -7,30 +7,6 @@
 
 import Foundation
 
-protocol Coordinator: AnyObject {
-    var childCoordinators: [Coordinator] { get set }
-    func start()
-}
-
-protocol SelfInstantiatingCoordinator: Coordinator {
-    static func make() -> Self
-}
-
-extension Coordinator {
-    func existingChildCoordinator<T: Coordinator>(ofType type: T.Type) -> T? {
-        childCoordinators.first { $0 is T } as? T
-    }
-
-    func childCoordinator<T: SelfInstantiatingCoordinator>(ofType type: T.Type) -> T {
-        if let existing = existingChildCoordinator(ofType: type) {
-            return existing
-        }
-        let new = T.make()
-        childCoordinators.append(new)
-        return new
-    }
-}
-
 final class AppCoordinator: ObservableObject, @MainActor Coordinator {
     enum AppRoute {
         case onboarding(OnboardingCoordinator)

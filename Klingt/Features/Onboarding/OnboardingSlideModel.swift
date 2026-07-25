@@ -16,7 +16,7 @@ struct OnboardingSlideModel: Identifiable {
 
 extension OnboardingSlideModel {
     static var slidesFromScenarios: [OnboardingSlideModel] {
-        OnboardingScenario.allCases.map { scenario in
+        OnboardingSlide.allCases.map { scenario in
             OnboardingSlideModel(
                 title: scenario.title,
                 description: scenario.description,

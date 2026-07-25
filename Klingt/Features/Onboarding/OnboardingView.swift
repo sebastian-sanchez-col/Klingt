@@ -25,9 +25,9 @@ struct OnboardingView: View {
             .padding(.top, 10)
 
             TabView(selection: $viewModel.selectedIndex) {
-                ForEach(viewModel.slides.indices, id: \.self) { index in
+                ForEach(Array(viewModel.slides.enumerated()), id: \.offset) { index, slide in
                     OnboardingSlideView(
-                        slide: viewModel.slides[index],
+                        slide: slide,
                         selectedTab: $viewModel.selectedIndex,
                         isLastSlide: index == viewModel.slides.count - 1,
                         onNext: viewModel.next
@@ -35,6 +35,7 @@ struct OnboardingView: View {
                     .tag(index)
                 }
             }
+            
             .tabViewStyle(.page(indexDisplayMode: .never))
             .animation(.easeInOut, value: viewModel.selectedIndex)
         }

@@ -18,7 +18,7 @@ struct HeaderView: View {
                 .fontWeight(.black)
                 .foregroundStyle(.white)
             HStack {
-                ForEach(OnboardingScenario.allCases.indices, id: \.self) { index in
+                ForEach(OnboardingSlide.allCases.indices, id: \.self) { index in
                     ZStack {
                         Circle()
                             .frame(width: 32, height: 32)
