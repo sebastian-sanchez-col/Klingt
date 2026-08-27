@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,8 @@
 		9C46C0B730070EB10097B888 /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46C0B630070EAD0097B888 /* ProfilePost.swift */; };
 		9C46C0B930070EE00097B888 /* ProfilePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46C0B830070EDA0097B888 /* ProfilePostService.swift */; };
 		9C46C0BB30070F1A0097B888 /* ProfilePostRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46C0BA30070F0C0097B888 /* ProfilePostRowView.swift */; };
+		9C50C9A13017EA2400609A88 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C9A03017EA1C00609A88 /* TaskService.swift */; };
+		9C50C9A33017EA5500609A88 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C9A23017EA5200609A88 /* Task.swift */; };
 		9C51C0882E54F2C700B918D7 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51C0872E54F2C700B918D7 /* ContainerView.swift */; };
 		9C51C08A2E54F35500B918D7 /* RaisedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51C0892E54F35500B918D7 /* RaisedButton.swift */; };
 		9C51C08C2E54F48C00B918D7 /* EmbossedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51C08B2E54F48C00B918D7 /* EmbossedButtonStyle.swift */; };
@@ -64,6 +66,16 @@
 		9CE5C70A3007C5EC005112DA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5C7093007C5EC005112DA /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9C582CD23017D67400790756 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C85DF9E2E0348BE00C82977 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C85DFA52E0348BE00C82977;
+			remoteInfo = Klingt;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		9C2304B730091C2E008D0ABF /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9C2304BC30093164008D0ABF /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
@@ -88,9 +100,12 @@
 		9C46C0B630070EAD0097B888 /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
 		9C46C0B830070EDA0097B888 /* ProfilePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostService.swift; sourceTree = "<group>"; };
 		9C46C0BA30070F0C0097B888 /* ProfilePostRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostRowView.swift; sourceTree = "<group>"; };
+		9C50C9A03017EA1C00609A88 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		9C50C9A23017EA5200609A88 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9C51C0872E54F2C700B918D7 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		9C51C0892E54F35500B918D7 /* RaisedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButton.swift; sourceTree = "<group>"; };
 		9C51C08B2E54F48C00B918D7 /* EmbossedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbossedButtonStyle.swift; sourceTree = "<group>"; };
+		9C582CCE3017D67400790756 /* KlingtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlingtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7573B22E4E0A0A00C853DB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9C7573B72E4E0C1200C853DB /* OnboardingSlideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlideModel.swift; sourceTree = "<group>"; };
 		9C85DFA62E0348BE00C82977 /* Klingt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Klingt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,7 +138,18 @@
 		9CE5C7093007C5EC005112DA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9C582CCF3017D67400790756 /* KlingtTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = KlingtTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		9C582CCB3017D67400790756 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C85DFA32E0348BE00C82977 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +228,8 @@
 		9C46C09D300703570097B888 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9C50C9A23017EA5200609A88 /* Task.swift */,
+				9C50C9A03017EA1C00609A88 /* TaskService.swift */,
 				9C2304BC30093164008D0ABF /* TaskListViewModel.swift */,
 				9CD27A7830084D8700FC0724 /* TaskListView.swift */,
 				9CD27A763008355D00FC0724 /* HomeTaskService.swift */,
@@ -273,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				9C85DFA82E0348BE00C82977 /* Klingt */,
+				9C582CCF3017D67400790756 /* KlingtTests */,
 				9C85DFA72E0348BE00C82977 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -281,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				9C85DFA62E0348BE00C82977 /* Klingt.app */,
+				9C582CCE3017D67400790756 /* KlingtTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,6 +381,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9C582CCD3017D67400790756 /* KlingtTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C582CD63017D67400790756 /* Build configuration list for PBXNativeTarget "KlingtTests" */;
+			buildPhases = (
+				9C582CCA3017D67400790756 /* Sources */,
+				9C582CCB3017D67400790756 /* Frameworks */,
+				9C582CCC3017D67400790756 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C582CD33017D67400790756 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9C582CCF3017D67400790756 /* KlingtTests */,
+			);
+			name = KlingtTests;
+			packageProductDependencies = (
+			);
+			productName = KlingtTests;
+			productReference = 9C582CCE3017D67400790756 /* KlingtTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9C85DFA52E0348BE00C82977 /* Klingt */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C85DFB92E0348C700C82977 /* Build configuration list for PBXNativeTarget "Klingt" */;
@@ -375,9 +428,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1510;
+				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
+					9C582CCD3017D67400790756 = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = 9C85DFA52E0348BE00C82977;
+					};
 					9C85DFA52E0348BE00C82977 = {
 						CreatedOnToolsVersion = 15.1;
 					};
@@ -397,11 +454,19 @@
 			projectRoot = "";
 			targets = (
 				9C85DFA52E0348BE00C82977 /* Klingt */,
+				9C582CCD3017D67400790756 /* KlingtTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9C582CCC3017D67400790756 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C85DFA42E0348BE00C82977 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,6 +479,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9C582CCA3017D67400790756 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C85DFA22E0348BE00C82977 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,7 +527,9 @@
 				9CA71EF53015183900FAC6A5 /* CoordinatorProtocol.swift in Sources */,
 				9C46C0963006FF720097B888 /* CuriositiesCoordinator.swift in Sources */,
 				9C46C0AA3007063B0097B888 /* CuriositiesView.swift in Sources */,
+				9C50C9A33017EA5500609A88 /* Task.swift in Sources */,
 				9CD27A71300834D300FC0724 /* HomeTask.swift in Sources */,
+				9C50C9A13017EA2400609A88 /* TaskService.swift in Sources */,
 				9CCCE7772E4CDB660037BED6 /* ImageExtension.swift in Sources */,
 				9C51C08A2E54F35500B918D7 /* RaisedButton.swift in Sources */,
 				9CD27A8130084E1600FC0724 /* ResourceDetailView.swift in Sources */,
@@ -476,7 +550,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9C582CD33017D67400790756 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C85DFA52E0348BE00C82977 /* Klingt */;
+			targetProxy = 9C582CD23017D67400790756 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		9C582CD43017D67400790756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CXX368N2R5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juansanchez.KlingtTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Klingt.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Klingt";
+			};
+			name = Debug;
+		};
+		9C582CD53017D67400790756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CXX368N2R5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.juansanchez.KlingtTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Klingt.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Klingt";
+			};
+			name = Release;
+		};
 		9C85DFB72E0348C700C82977 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -657,6 +783,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9C582CD63017D67400790756 /* Build configuration list for PBXNativeTarget "KlingtTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C582CD43017D67400790756 /* Debug */,
+				9C582CD53017D67400790756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9C85DFA12E0348BE00C82977 /* Build configuration list for PBXProject "Klingt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
